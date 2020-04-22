@@ -29,7 +29,6 @@ if (isset($_GET['id'])) :
     $stmt->bindParam(':id', $id);
     $stmt->execute(); 
     while ($row = $stmt->fetch()) : ?>
-
         <h1><?= $row['title']?> - <?= $row['rating'] ?></h1>
         <table> 
             <tr>

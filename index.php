@@ -55,9 +55,9 @@ try {
             <td><form action="series.php" method="get"><a type='submit' name='id' href="series.php?id=<?= $row['id']?>">Bekijk de details</a></form></td>
             </tr>
             <?php endwhile; ?>
-        <?php else:
+        <?php else :
             $stmt = $pdo->query('SELECT * FROM series');
-            while ($row = $stmt->fetch()): ?> 
+            while ($row = $stmt->fetch()) : ?> 
             <tr>
             <td><?= $row['title'] ?></td> 
             <td><?= $row['rating'] ?></td>
@@ -94,9 +94,9 @@ try {
             <td><form action="series.php" method="get"><a type='submit' name='id' href="series.php?id=<?= $row['id']?>">Bekijk de details</a></form></td>
             </tr>
             <?php endwhile; ?>
-        <?php else:
+        <?php else :
             $stmt = $pdo->query('SELECT * FROM movies');
-            while ($row = $stmt->fetch()): ?> 
+            while ($row = $stmt->fetch()) : ?> 
             <tr>
             <td><?= $row['title'] ?></td> 
             <td><?= $row['duur'] ?></td>
