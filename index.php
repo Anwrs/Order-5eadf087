@@ -33,37 +33,77 @@ try {
     <h2>Series</h2>
     <table>
         <tr>
-            <th>Titel</th>
-            <th>Rating</th>
+            <th><form action="index.php" method="get"><a type='submit' name='series_title' href="index.php?series_title=1">Titel</a></form></th>
+            <th><form action="index.php" method="get"><a type='submit' name='series_rating' href="index.php?series_rating=1">Rating</a></form></th>
         </tr>
         <?php
-        $stmt = $pdo->query('SELECT * FROM series');
-        while ($row = $stmt->fetch()): ?> 
+        if (isset($_GET['series_title'])) :
+            $stmt = $pdo->query('SELECT * FROM series ORDER BY title ASC;');
+            while ($row = $stmt->fetch()): ?> 
             <tr>
             <td><?= $row['title'] ?></td> 
             <td><?= $row['rating'] ?></td>
             <td><form action="series.php" method="get"><a type='submit' name='id' href="series.php?id=<?= $row['id']?>">Bekijk de details</a></form></td>
             </tr>
+            <?php endwhile; ?>
+        <?php elseif (isset($_GET['series_rating'])) : 
+            $stmt = $pdo->query('SELECT * FROM series ORDER BY rating DESC;');
+            while ($row = $stmt->fetch()): ?> 
+            <tr>
+            <td><?= $row['title'] ?></td> 
+            <td><?= $row['rating'] ?></td>
+            <td><form action="series.php" method="get"><a type='submit' name='id' href="series.php?id=<?= $row['id']?>">Bekijk de details</a></form></td>
+            </tr>
+            <?php endwhile; ?>
+        <?php else:
+            $stmt = $pdo->query('SELECT * FROM series');
+            while ($row = $stmt->fetch()): ?> 
+            <tr>
+            <td><?= $row['title'] ?></td> 
+            <td><?= $row['rating'] ?></td>
+            <td><form action="series.php" method="get"><a type='submit' name='id' href="series.php?id=<?= $row['id']?>">Bekijk de details</a></form></td>
+            </tr>
+            <?php endwhile; ?>
+        <?php endif; ?>
         
-        <?php endwhile; ?>
+
     </table>
 
     <h2>Films</h2>
     <table>
         <tr>
-            <th>Titel</th>
-            <th>Duur</th>
+            <th><form action="index.php" method="get"><a type='submit' name='movies_title' href="index.php?movies_title=1">Titel</a></form></th>
+            <th><form action="index.php" method="get"><a type='submit' name='movies_duur' href="index.php?movies_duur=1">Duur</a></form></th>
         </tr>
         <?php
-        $stmt = $pdo->query('SELECT * FROM movies');
-        while ($row = $stmt->fetch()): ?> 
+        if (isset($_GET['movies_title'])) :
+            $stmt = $pdo->query('SELECT * FROM movies ORDER BY title ASC;');
+            while ($row = $stmt->fetch()): ?> 
             <tr>
-            <td><?= $row['title'] ?></td>
+            <td><?= $row['title'] ?></td> 
             <td><?= $row['duur'] ?></td>
-            <td><form action="films.php" method="get"><a type='submit' name='id' href="films.php?id=<?= $row['id']?>">Bekijk de details</a></form></td>
+            <td><form action="series.php" method="get"><a type='submit' name='id' href="series.php?id=<?= $row['id']?>">Bekijk de details</a></form></td>
             </tr>
-        
-        <?php endwhile; ?>
+            <?php endwhile; ?>
+        <?php elseif (isset($_GET['movies_duur'])) : 
+            $stmt = $pdo->query('SELECT * FROM movies ORDER BY duur DESC;');
+            while ($row = $stmt->fetch()): ?> 
+            <tr>
+            <td><?= $row['title'] ?></td> 
+            <td><?= $row['duur'] ?></td>
+            <td><form action="series.php" method="get"><a type='submit' name='id' href="series.php?id=<?= $row['id']?>">Bekijk de details</a></form></td>
+            </tr>
+            <?php endwhile; ?>
+        <?php else:
+            $stmt = $pdo->query('SELECT * FROM movies');
+            while ($row = $stmt->fetch()): ?> 
+            <tr>
+            <td><?= $row['title'] ?></td> 
+            <td><?= $row['duur'] ?></td>
+            <td><form action="series.php" method="get"><a type='submit' name='id' href="series.php?id=<?= $row['id']?>">Bekijk de details</a></form></td>
+            </tr>
+            <?php endwhile; ?>
+        <?php endif; ?>
     </table>
 
 </body>
