@@ -43,7 +43,8 @@ if (isset($_GET['id'])) :
             <tr>
                 <td>
                 <iframe width="1080" height="620" src="https://www.youtube.com/embed/<?= $row['youtube_trailer_id'] ?>"
-                 frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                 frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                 </iframe>
                 </td>
             </tr>
         </table>
