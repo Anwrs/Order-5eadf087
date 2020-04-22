@@ -82,7 +82,7 @@ try {
             <tr>
             <td><?= $row['title'] ?></td> 
             <td><?= $row['duur'] ?></td>
-            <td><form action="series.php" method="get"><a type='submit' name='id' href="series.php?id=<?= $row['id']?>">Bekijk de details</a></form></td>
+            <td><form action="series.php" method="get"><a type='submit' name='id' href="films.php?id=<?= $row['id']?>">Bekijk de details</a></form></td>
             </tr>
             <?php endwhile; ?>
         <?php elseif (isset($_GET['movies_duur'])) : 
@@ -91,7 +91,7 @@ try {
             <tr>
             <td><?= $row['title'] ?></td> 
             <td><?= $row['duur'] ?></td>
-            <td><form action="series.php" method="get"><a type='submit' name='id' href="series.php?id=<?= $row['id']?>">Bekijk de details</a></form></td>
+            <td><form action="series.php" method="get"><a type='submit' name='id' href="films.php?id=<?= $row['id']?>">Bekijk de details</a></form></td>
             </tr>
             <?php endwhile; ?>
         <?php else :
@@ -100,7 +100,7 @@ try {
             <tr>
             <td><?= $row['title'] ?></td> 
             <td><?= $row['duur'] ?></td>
-            <td><form action="series.php" method="get"><a type='submit' name='id' href="series.php?id=<?= $row['id']?>">Bekijk de details</a></form></td>
+            <td><form action="series.php" method="get"><a type='submit' name='id' href="films.php?id=<?= $row['id']?>">Bekijk de details</a></form></td>
             </tr>
             <?php endwhile; ?>
         <?php endif; ?>
