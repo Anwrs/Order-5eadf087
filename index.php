@@ -39,7 +39,7 @@ try {
         <?php
         if (isset($_GET['series_title'])) :
             $stmt = $pdo->query('SELECT * FROM series ORDER BY title ASC;');
-            while ($row = $stmt->fetch()): ?> 
+            while ($row = $stmt->fetch()) : ?> 
             <tr>
             <td><?= $row['title'] ?></td> 
             <td><?= $row['rating'] ?></td>
@@ -48,7 +48,7 @@ try {
             <?php endwhile; ?>
         <?php elseif (isset($_GET['series_rating'])) : 
             $stmt = $pdo->query('SELECT * FROM series ORDER BY rating DESC;');
-            while ($row = $stmt->fetch()): ?> 
+            while ($row = $stmt->fetch()) : ?> 
             <tr>
             <td><?= $row['title'] ?></td> 
             <td><?= $row['rating'] ?></td>
@@ -87,7 +87,7 @@ try {
             <?php endwhile; ?>
         <?php elseif (isset($_GET['movies_duur'])) : 
             $stmt = $pdo->query('SELECT * FROM movies ORDER BY duur DESC;');
-            while ($row = $stmt->fetch()): ?> 
+            while ($row = $stmt->fetch()) : ?> 
             <tr>
             <td><?= $row['title'] ?></td> 
             <td><?= $row['duur'] ?></td>
