@@ -78,7 +78,7 @@ try {
         <?php
         if (isset($_GET['movies_title'])) :
             $stmt = $pdo->query('SELECT * FROM movies ORDER BY title ASC;');
-            while ($row = $stmt->fetch()): ?> 
+            while ($row = $stmt->fetch()) : ?> 
             <tr>
             <td><?= $row['title'] ?></td> 
             <td><?= $row['duur'] ?></td>
